@@ -1,4 +1,3 @@
-
 // //Vanilla JS used to show/hide mobile navigation
 // document.getElementById("nav-toggle").addEventListener("click", function(){
 //   if(document.getElementsByClassName("mobile-list")[0].id === ""){
@@ -9,8 +8,8 @@
 // });
 
 $(document).ready(function() {
-
-  // // Toggle mobile menu views
+  
+  // Toggle mobile menu views
   $("#nav-toggle").on("click", function(event) {
     // to prevent scrolling when we close the menu
     event.preventDefault();
@@ -18,10 +17,8 @@ $(document).ready(function() {
     $(".mobile-list").slideToggle();
   });
 
-
-  //navigate to page anchors
+  //navigate to page anchors, ensuring our header doesn't cover relevant section titles
   $(".mobile-list a").on("click", function(event) {
-    // Calculate header height to ensure that our header doesn't cover our anchor
     event.preventDefault();
     var headerHeight = $("header").height();
     var id = $(this).attr("href");
@@ -30,15 +27,10 @@ $(document).ready(function() {
     $("body, html").animate({
       scrollTop: newScrollCordinate
     });
-
     // $("body, html").scrollTop(newScrollCordinate);
   });
 
-  $("#nav-toggle").on("click", function(){
-
-  })
-
-  // set up carousel
+  //Use slick to set up carousel
   var $galleryImg = $(".gallery img");
   var $closeBtn = $(".btn");
   var $carousel = $(".carousel");
@@ -52,7 +44,7 @@ $(document).ready(function() {
     draggable: false
   });
 
-  $galleryImg.on("click", function(slick){
+  $galleryImg.on("click", function(slick) {
     var $imgId = $(this).attr("id");
     // Kick off fade-in, specifically to set display: block
     $overlay.fadeIn();
@@ -60,42 +52,11 @@ $(document).ready(function() {
     $carousel.slick("slickGoTo", $imgId, true).slick("setPosition");
   });
 
-  $closeBtn.on("click", function(event){
+  $closeBtn.on("click", function(event) {
     event.preventDefault();
     $overlay.fadeOut();
   });
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -119,7 +80,7 @@ $carousel.slick({
   draggable: false
 });
 
-$galleryImg.on("click", function(slick){
+$galleryImg.on("click", function(slick) {
   var $imgId = $(this).attr("id");
   // Kick off fade-in, specifically to set display: block
   $overlay.fadeIn();
@@ -127,7 +88,7 @@ $galleryImg.on("click", function(slick){
   $carousel.slick("slickGoTo", $imgId, true).slick("setPosition");
 });
 
-$closeBtn.on("click", function(event){
+$closeBtn.on("click", function(event) {
   event.preventDefault();
   $overlay.fadeOut();
 });
